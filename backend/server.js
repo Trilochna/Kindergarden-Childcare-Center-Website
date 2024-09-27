@@ -1,3 +1,42 @@
+// const express = require('express');
+// const mysql = require('mysql2');
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
+// const session = require('express-session');
+// const bcrypt = require('bcrypt');
+// const path = require('path');
+
+// const app = express();
+// const port = 3000;
+
+// // Middleware setup
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(cors());
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(session({
+//     secret: 'secretkey',
+//     resave: false,
+//     saveUninitialized: true
+// }));
+
+// // Create a MySQL connection pool
+// const pool = mysql.createPool({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Tech_123',
+//     database: 'techdb',
+//     waitForConnections: true,
+//     connectionLimit: 10,
+//     queueLimit: 0
+// });
+
+// // Root route
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'teacher_dashboard.html'));
+// });
+
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -5,34 +44,52 @@ const cors = require('cors');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const path = require('path');
+const MySQLStore = require('express-mysql-session')(session); // Use MySQL session store for production
+require('dotenv').config(); // Load environment variables
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+
+// Serve static files (make sure the 'public' folder contains your frontend build files)
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Session setup using MySQL session store for production
+const sessionStore = new MySQLStore({
+    host: process.env.DB_HOST,
+    port: 3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+});
+
 app.use(session({
-    secret: 'secretkey',
+    key: 'user_sid',
+    secret: process.env.SESSION_SECRET,
+    store: sessionStore,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
 }));
 
-// Create a MySQL connection pool
+// Create MySQL connection pool using environment variables
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'Tech_123',
-    database: 'techdb',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
 
-// Root route
+// Root route (Optional, as frontend is on Netlify)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'teacher_dashboard.html'));
 });
@@ -339,7 +396,7 @@ app.get('/api/events/:date', (req, res) => {
 
 
 
-
+// Start the server
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
