@@ -1,0 +1,75 @@
+7 tables in techdb database mysql : 
+
+
+CREATE TABLE `2024001_山田` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `temperature` decimal(5,2) DEFAULT NULL,
+  `recorded_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2024002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `2024002_鈴木` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `temperature` decimal(5,2) DEFAULT NULL,
+  `recorded_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2024003 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `attendance` (
+  `studentid` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `attendance_date` date DEFAULT NULL,
+  `present` tinyint(1) NOT NULL DEFAULT '0',
+  `absent` tinyint(1) NOT NULL DEFAULT '0',
+  KEY `studentid` (`studentid`),
+  CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`studentid`) REFERENCES `student` (`studentid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `events` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `student` (
+  `studentid` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `batch` varchar(20) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `address` text,
+  `parents_phone_number` varchar(15) DEFAULT NULL,
+  `father_name` varchar(50) DEFAULT NULL,
+  `mother_name` varchar(50) DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  PRIMARY KEY (`studentid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2024037 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `temp` (
+  `id` int NOT NULL,
+  `temperature` decimal(5,2) DEFAULT NULL,
+  `recorded_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_student_id` FOREIGN KEY (`id`) REFERENCES `student` (`studentid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `test` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `first_name` char(50) DEFAULT NULL,
+  `last_name` char(50) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  `batch` year DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(500) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
