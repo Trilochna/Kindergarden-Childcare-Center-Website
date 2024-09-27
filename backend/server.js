@@ -56,7 +56,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Serve static files (make sure the 'public' folder contains your frontend build files)
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Session setup using MySQL session store for production
 const sessionStore = new MySQLStore({
@@ -90,9 +90,9 @@ const pool = mysql.createPool({
 });
 
 // Root route (Optional, as frontend is on Netlify)
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'teacher_dashboard.html'));
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'teacher_dashboard.html'));
+// });
 
 // API Endpoint to handle form submissions
 app.post('/api/signup', (req, res) => {
