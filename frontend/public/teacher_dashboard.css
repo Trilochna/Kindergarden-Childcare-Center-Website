@@ -1,0 +1,167 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8; /* Light neutral gray for a clean look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent body overflow */
+    color: #333; /* Dark gray for text */
+}
+
+/* Container for the whole content */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff; /* White background for content */
+    border-radius: 12px; /* Rounded corners for a modern feel */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    height: 100%; /* Ensure full height usage */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Style */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #bfa4b6; /* Pastel purple background */
+    color: #ffffff; /* White text color */
+    padding: 15px 25px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Main Content */
+main {
+    flex: 1; /* Take up remaining space */
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    padding: 20px;
+}
+
+/* Footer Style */
+footer {
+    background-color: #bfa4b6; /* Match footer with header pastel purple */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Greeting Style */
+.greeting {
+    font-size: 26px;
+    font-weight: 600; /* Bold text for emphasis */
+    color: #6f4f6f; /* Slightly darker pastel purple for greeting text */
+}
+
+/* Notification Icon Style */
+.notification-icon img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Attendance Sheet Style */
+.attendance-sheet {
+    margin: 0;
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Hide overflow to maintain rounded corners */
+}
+
+.attendance-sheet table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-sheet th, .attendance-sheet td {
+    border: 1px solid #ddd; /* Light gray borders */
+    padding: 12px;
+    text-align: left;
+}
+
+.attendance-sheet th {
+    background-color: #d8c8e1; /* Lighter pastel purple for header background */
+    color: #4a3c4b; /* Darker neutral for text */
+    font-weight: 600;
+}
+
+.attendance-sheet td {
+    background-color: #f5f5f5; /* Very light gray for table rows */
+}
+
+.attendance-sheet tr:nth-child(even) td {
+    background-color: #eaeaea; /* Light gray for alternate rows */
+}
+
+.attendance-sheet select {
+    border: 1px solid #ccc; /* Neutral gray border */
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+/* Button Style */
+button {
+    background-color: #a78d8d; /* Soft pastel purple */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8c6e6e; /* Slightly darker pastel purple on hover */
+}
+
+/* Edit Icon Style 
+.edit-icon {
+    text-align: right;
+    margin: 20px;
+}
+
+.edit-icon img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+*/ 
+
+/* Footer Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between; /* Space out items evenly */
+    width: 100%; /* Ensure nav takes full width */
+}
+
+/* Space out footer icons */
+.nav-icon {
+    margin: 0 50px; /* Add horizontal margin to each icon */
+}
+
+.nav-icon img {
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icon img:hover {
+    opacity: 0.8;
+}

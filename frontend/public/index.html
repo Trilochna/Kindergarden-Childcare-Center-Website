@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten App</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Kindergarten Logo" class="logo">
+        
+        <div class="input-box">
+            <label for="role" class="dropdown-label">役割を選択してください:</label>
+            <select id="role" class="dropdown">
+                <option value="" disabled selected>役割を選択してください</option>
+                <option value="admin">管理者</option>
+                <option value="teacher">先生</option>
+                <option value="parent">両親</option>
+            </select>
+            
+            <button onclick="goToLogin()" class="continue-btn">続ける</button>
+        </div>
+                
+        <button onclick="cancel()" class="cancel-btn">キャンセル</button>
+    </div>
+
+    <script>
+        function goToLogin() {
+            const role = document.getElementById('role').value;
+
+            if (role) {
+                window.location.href = `${role}login.html`;
+            } else {
+                alert('Please select a role.');
+            }
+        }
+
+        function cancel() {
+            alert('Cancelled');
+        }
+    </script>
+</body>
+</html>
+

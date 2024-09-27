@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Parent Dashboard</title>
+    <link rel="stylesheet" href="parent_dashboard.css">
+</head>
+<body>
+    <header>
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <span class="greeting">こんにちは, 両親!</span>
+            <span class="notification-icon">&#128276;</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Health Status -->
+        <section class="health-status-section">
+            <h2 class="health-status">しんちゃんの健康状態</h2>
+        </section>
+
+        <!-- Clock -->
+        <section class="clock-section">
+            <div class="clock" id="clock">--:--:--</div>
+        </section>
+
+        <!-- Temperature Section -->
+        <section class="temperature-section">
+            <div class="temp-section">
+                <span class="temp-icon">&#127777;</span>
+                <span class="temperature" id="current-temperature">36°C</span>
+            </div>
+            <h1>温度データ</h1>
+            <div id="temperature-container">
+                <!-- Temperature data will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Call Icon -->
+        <section class="call-section">
+            <span class="call-icon">&#128222;</span>
+        </section>
+    </main>
+
+    <!-- Footer Navigation Bar -->
+    <footer class="nav-bar">
+        <span class="nav-icon">&#127968;</span> <!-- Home -->
+        <a href="schedule.html" class="nav-link">
+            <span class="nav-icon">&#128197;</span> <!-- Calendar -->
+          </a>
+
+          <span class="nav-icon">&#128172;</span> <!-- Chat -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

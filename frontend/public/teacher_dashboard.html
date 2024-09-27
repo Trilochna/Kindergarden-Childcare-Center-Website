@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Teacher Dashboard</title>
+    <link rel="stylesheet" href="teacher_dashboard.css">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="greeting">こんにちは, 先生!</div>
+            <div class="notification-icon">
+                <span class="notification-icon">&#128276;</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="attendance-sheet">
+                <table id="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>学生 ID</th>
+                            <th>名前</th>
+                            <th>日付</th>
+                            <th>います</th>
+                            <th>いません</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024001</td>
+                            <td>山田 太郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024001"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024001"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024002</td>
+                            <td>鈴木 一郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024002"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024002"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024003</td>
+                            <td>佐藤 次郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024003"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024003"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024004</td>
+                            <td>高橋 三郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024004"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024004"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024005</td>
+                            <td>田中 四郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024005"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024005"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024006</td>
+                            <td>伊藤 五郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024006"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024006"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024007</td>
+                            <td>渡辺 六郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024007"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024007"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024008</td>
+                            <td>山口 七郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024008"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024008"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024009</td>
+                            <td>中村 八郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024009"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024009"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024010</td>
+                            <td>小林 九郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024010"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024010"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024011</td>
+                            <td>加藤 十郎</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024011"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024011"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024012</td>
+                            <td>松本 実</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024012"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024012"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024013</td>
+                            <td>清水 美咲</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024013"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024013"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024014</td>
+                            <td>高田 玲子</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024014"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024014"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024015</td>
+                            <td>西村 陽子</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024015"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024015"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024016</td>
+                            <td>大野 春樹</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024016"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024016"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024017</td>
+                            <td>石井 翔太</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024017"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024017"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024018</td>
+                            <td>中島 明美</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024018"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024018"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024019</td>
+                            <td>木村 由美</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024019"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024019"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024020</td>
+                            <td>藤田 和子</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024020"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024020"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024021</td>
+                            <td>村上 光</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024021"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024021"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024022</td>
+                            <td>山田 智子</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024022"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024022"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024023</td>
+                            <td>森田 浩一</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024023"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024023"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024024</td>
+                            <td>高井 幸子</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024024"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024024"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024025</td>
+                            <td>斎藤 直樹</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024025"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024025"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024026</td>
+                            <td>岡田 美穂</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024026"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024026"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024027</td>
+                            <td>原田 修</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024027"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024027"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024028</td>
+                            <td>田村 智也</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024028"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024028"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024029</td>
+                            <td>吉田 佳子</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024029"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024029"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                        <tr>
+                            <td>2024030</td>
+                            <td>藤原 守</td>
+                            <td>2024/09/12</td>
+                            <td><select name="present-2024030"><option value="0">0</option><option value="1">1</option></select></td>
+                            <td><select name="absent-2024030"><option value="0">0</option><option value="1">1</option></select></td>
+                        </tr>
+                    </tbody>
+                    
+                 </table>
+                <button onclick="updateAll()">すべて更新</button>
+            </div>
+
+         <!--    <div class="edit-icon">
+                <img src="edit-icon.png" alt="Edit Icon" id="edit-icon">
+            </div>-->
+        </main>
+
+        <footer>
+            <nav>
+                <a href="#attendance" class="nav-icon">
+                    <span class="nav-icon">&#127968;</span> <!-- Home -->
+                </a>
+                <a href="temprecord.html" class="nav-icon">
+                    <span class="nav-icon">&#10084;</span> <!-- Heart -->
+                </a>
+                <a href="#chat" class="nav-icon">
+                    <span class="nav-icon">&#128172;</span> <!-- Chat -->
+                </a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableBody = document.querySelector('#attendance-table tbody');
+            const currentDate = new Date().toLocaleDateString('ja-JP'); // Get current date in Japanese format
+
+            // Load student data
+            fetch('/students')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${currentDate}</td>
+                            <td>${row.id}</td>
+                            <td>${row.name}</td>
+                            <td>
+                                <select name="present-${row.id}">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="absent-${row.id}">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                });
+
+            // Update All button functionality
+            window.updateAll = function() {
+    const rows = document.querySelectorAll('#attendance-table tbody tr');
+    const updates = Array.from(rows).map(row => {
+        const id = row.cells[0].innerText; // Assuming student ID is in the first cell
+        const present = row.querySelector(`select[name="present-${id}"]`).value;
+        const absent = row.querySelector(`select[name="absent-${id}"]`).value;
+        return { id, present, absent, date: row.cells[2].innerText }; // Adding date to updates
+    });
+
+    fetch('/updateAllAttendance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updates),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Data updated successfully!');
+        } else {
+            alert('Error updating data.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+        });
+    </script>
+</body>
+</html>

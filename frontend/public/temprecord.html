@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Temperature</title>
+    <link rel="stylesheet" href="temprecord.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Temperature</h1>
+        <form id="update-form">
+            <label for="studentid">学生 ID:</label>
+            <select id="studentid" name="studentid" required>
+                <!-- Options will be dynamically populated by JavaScript -->
+            </select><br>
+
+            <label for="temperature">温度:</label>
+            <input type="number" id="temperature" name="temperature" step="0.01" required><br>
+
+            <label for="recorded_at">録音の時間:</label>
+            <input type="datetime-local" id="recorded_at" name="recorded_at" required><br>
+
+            <button type="submit">アップデート</button>
+        </form>
+    </div>
+
+    <script>
+
+
+// Function to populate the dropdown with student IDs
+function populateStudentIDs() {
+            const select = document.getElementById('studentid');
+            const startID = 2024001;
+            const endID = 2024032;
+
+            for (let id = startID; id <= endID; id++) {
+                const option = document.createElement('option');
+                option.value = id;
+                option.textContent = id;
+                select.appendChild(option);
+            }
+        }
+
+        // Call the function to populate the dropdown when the page loads
+        document.addEventListener('DOMContentLoaded', populateStudentIDs);
+        document.getElementById('update-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const studentid = document.getElementById('studentid').value;
+            const temperature = document.getElementById('temperature').value;
+            const recorded_at = document.getElementById('recorded_at').value;
+
+            try {
+                const response = await fetch('/api/updateTemperature', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        studentid,
+                        temperature,
+                        recorded_at
+                    }),
+                });
+
+                if (response.ok) {
+                    alert('Data updated successfully');
+                } else {
+                    alert('Error updating data');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error updating data');
+            }
+        });
+    </script>
+</body>
+</html>

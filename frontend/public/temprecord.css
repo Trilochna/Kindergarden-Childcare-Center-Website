@@ -1,0 +1,80 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e0e0e0, #ffffff); /* Subtle gradient background */
+    margin: 0;
+}
+
+/* Container Styling */
+.container {
+    background-color: #ffffff;
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 12px; /* Slightly larger border radius for a softer look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow for a modern feel */
+    width: 100%;
+    max-width: 500px; /* Constrained max-width for better readability */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label Styling */
+label {
+    margin-bottom: 8px; /* Increased margin for better spacing */
+    font-weight: 500; /* Slightly bolder font for labels */
+    color: #333333; /* Darker color for better readability */
+    font-size: 16px; /* Slightly larger font size */
+}
+
+/* Input and Select Styling */
+input[type="number"],
+input[type="datetime-local"],
+select {
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    padding: 12px; /* Increased padding for a more spacious feel */
+    border: 1px solid #dcdcdc; /* Lighter border color */
+    border-radius: 8px; /* Matching border radius for modern look */
+    font-size: 16px; /* Increased font size for readability */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+    width: 100%; /* Full width for consistency */
+}
+
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+select:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Subtle shadow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styling */
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px; /* Matching border radius */
+    cursor: pointer;
+    font-size: 16px; /* Consistent font size */
+    font-weight: bold; /* Bold font for emphasis */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}

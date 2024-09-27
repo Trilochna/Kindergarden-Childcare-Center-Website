@@ -1,0 +1,102 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFD39A; /* Light orange background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Container for the whole content */
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Increased max-width for better content distribution */
+}
+
+/* Header Styling */
+h1 {
+    font-size: 28px; /* Larger font size */
+    color: #574026; /* Dark brown color */
+    margin-bottom: 30px;
+}
+
+/* Flexbox layout for input boxes */
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between input boxes */
+}
+
+/* Glassmorphism style for the input box */
+.input-box {
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque for better readability */
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(12px); /* Increased blur for better glassmorphism effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth hover effects */
+}
+
+/* Hover effect for input box */
+.input-box:hover {
+    transform: scale(1.02); /* Slight zoom effect */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Button styling */
+.dashboard-button {
+    display: inline-block; /* Inline block for better layout control */
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #574026; /* Dark brown */
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 25px; /* Adjusted padding for better button proportions */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin-bottom: 15px; /* More spacing from text */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effects */
+.dashboard-button:hover {
+    background-color: #3d2a1d; /* Slightly darker brown */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Paragraph styling */
+p {
+    font-size: 16px; /* Increased font size for better readability */
+    color: #574026; /* Matches the color scheme */
+    margin-top: 10px;
+    line-height: 1.5; /* Improved line height for readability */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px; /* Slightly smaller font size on smaller screens */
+    }
+
+    .dashboard-button {
+        font-size: 16px; /* Smaller button text on smaller screens */
+        padding: 12px 20px; /* Adjusted padding */
+    }
+
+    p {
+        font-size: 14px; /* Smaller text on smaller screens */
+    }
+}

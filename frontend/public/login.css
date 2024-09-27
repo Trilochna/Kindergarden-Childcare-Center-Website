@@ -1,0 +1,77 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFD39A; /* Light orange background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the login form */
+.container {
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism style */
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Headline style */
+h2 {
+    color: #574026;
+    margin-bottom: 20px;
+}
+
+/* Input fields styling */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent white background */
+}
+
+/* Button styles */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #574026; /* Dark brown for the buttons */
+    color: #fff;
+}
+
+/* Cancel button styling */
+button:nth-of-type(2) {
+    background-color: #FFD39A; /* Light orange */
+    color: #574026; /* Dark brown text */
+}
+
+/* Sign Up button styling */
+button:nth-of-type(3) {
+    background-color: transparent;
+    border: 2px solid #574026; /* Dark brown border */
+    color: #574026;
+}
+
+/* Hover effects */
+button:hover {
+    opacity: 0.8;
+}

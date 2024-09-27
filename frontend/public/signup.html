@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <div class="input-box">
+            <input type="text" id="first_name" placeholder="First Name" required><br>
+            <input type="text" id="last_name" placeholder="Last Name" required><br>
+            <input type="date" id="date_of_birth" placeholder="Date of Birth" required><br>
+            <input type="number" id="age" placeholder="Age" min="0" required><br>
+            <input type="number" id="batch" placeholder="Batch Year" required><br>
+            <input type="text" id="address" placeholder="Address" required><br>
+            <input type="text" id="email" placeholder="Email" required><br>
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+                      <!-- //  <label for="role">Role:</label> -->
+                      <select id="role" required>
+                        <option value="" disabled selected>役割を選択してください</option>
+                        <option value="admin">管理者</option>
+                        <option value="teacher">先生</option>
+                        <option value="parent">両親</option>
+                    </select><br>
+        
+                    
+            <button onclick="createAccount()" class="signup-btn">アカウント作成</button>
+        </div>
+    </div>
+
+    <script>
+    async function createAccount() {
+        const firstName = document.getElementById('first_name').value;
+        const lastName = document.getElementById('last_name').value;
+        const dateOfBirth = document.getElementById('date_of_birth').value;
+        const age = document.getElementById('age').value;
+        const batch = document.getElementById('batch').value;
+        const address = document.getElementById('address').value;
+        const email = document.getElementById('email').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const role = document.getElementById('role').value;
+
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+
+        // Check if role is selected
+        if (!role) {
+            alert('Please select a role');
+            return;
+        }
+
+        const response = await fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                first_name: firstName,
+                last_name: lastName,
+                role: role, // Include the role in the request
+                date_of_birth: dateOfBirth,
+                age: age,
+                batch: batch,
+                address: address,
+                email: email,
+                username: username,
+                password: password
+            }),
+        });
+
+        if (response.ok) {
+            alert('Account created successfully');
+        } else {
+            alert('Error creating account');
+        }
+    }
+    </script>
+</body>
+</html>

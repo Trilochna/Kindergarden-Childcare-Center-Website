@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー</title>
+    <link rel="stylesheet" href="schedule.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="notifications">
+                <span class="notification-icon">&#128276;</span>
+                <span class="notification-count">3</span>
+            </div>
+        </header>
+        
+        <h1 class="title">カレンダー</h1>
+        
+        <div class="calendar">
+            <div class="month">
+                <span>九月</span>
+            </div>
+            <div class="weekdays">
+                <span>月</span>
+                <span>火</span>
+                <span>水</span>
+                <span>木</span>
+                <span>金</span>
+                <span>土</span>
+                <span>日</span>
+            </div>
+            <div class="days">
+                <!-- Days of the month -->
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+                <span>11</span>
+                <span>12</span>
+                <span>13</span>
+                <span>14</span>
+                <span>15</span>
+                <span>16</span>
+                <span>17</span>
+                <span>18</span>
+                <span>19</span>
+                <span>20</span>
+                <span>21</span>
+                <span class="selected">22</span>
+                <span>23</span>
+                <span>24</span>
+                <span>25</span>
+                <span>26</span>
+                <span>27</span>
+                <span>28</span>
+                <span>29</span>
+                <span>30</span>
+            </div>
+        </div>
+        
+        <div class="events">
+            <!-- Event details will be loaded here -->
+        </div>
+        
+        <footer>
+            <a href="parent_dashboard.html" class="nav-link">
+                <span class="nav-icon">&#127968;</span> <!-- Home -->
+            </a>
+            <span class="nav-icon">&#128172;</span> <!-- Chat -->
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.days span').forEach(day => {
+            day.addEventListener('click', function() {
+                // Remove the selected class from the previously selected day
+                document.querySelector('.selected').classList.remove('selected');
+                // Add the selected class to the currently clicked day
+                this.classList.add('selected');
+                
+                // Get the selected day number
+                const dayNumber = this.textContent.padStart(2, '0'); // Add leading zero if needed
+                
+                // Build the date string in YYYY-MM-DD format
+                const selectedDate = `2024-09-${dayNumber}`;
+                
+                // Fetch events for the selected date
+                fetch(`/api/events/${selectedDate}`)
+                    .then(response => response.json())
+                    .then(events => {
+                        // Display events for the selected day
+                        const eventContainer = document.querySelector('.events');
+                        eventContainer.innerHTML = ''; // Clear previous events
+                        
+                        if (events.length > 0) {
+                            events.forEach(event => {
+                                const eventElement = document.createElement('p');
+                                eventElement.innerHTML = `${event.title} <span class="event-time">${event.time}</span><br>${event.date}`;
+                                eventContainer.appendChild(eventElement);
+                            });
+                        } else {
+                            eventContainer.innerHTML = '<p>この日にイベントはありません。</p>';
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Error fetching events:', err);
+                    });
+            });
+        });
+    </script>
+    
+</body>
+</html>
