@@ -13,6 +13,65 @@
         <form id="login-form">
             <input type="text" id="username" placeholder="Username" required><br>
             <input type="password" id="password" placeholder="Password" required><br>
+
+            <button type="button" onclick="login()">ログイン</button>
+            <button type="button" onclick="signup()">サインアップ</button>
+            <button type="button" onclick="cancel()">キャンセル</button>
+        </form>
+    </div>
+
+    <script>
+        const backendUrl = 'https://kindergarden-childcare-center-website.onrender.com'; // Your Render backend URL
+
+        function cancel() {
+            window.location.href = 'index.html';
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = 'admin'; // Since this is admin login, we hardcode the role as 'admin'
+
+            fetch(`${backendUrl}/login/${role}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = `${role}_dashboard.html`;
+                } else {
+                    alert('Invalid credentials');
+                }
+            })
+            .catch(err => console.error('Error:', err));
+        }
+
+        function signup() {
+            window.location.href = 'signup.html';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
            
             
 
@@ -54,3 +113,4 @@
     </script>
 </body>
 </html>
+ -->
